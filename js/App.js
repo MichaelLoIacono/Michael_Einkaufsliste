@@ -15,6 +15,7 @@ class App {
   }
 
   static gruppeHinzufuegen(name) {
+
     const gleicheGruppen = this.gruppenListe.filter(gruppe => gruppe.name == name)
     // keine Gruppe mit diesem Namen vorhanden
     if (gleicheGruppen.length == 0) {

@@ -5,7 +5,7 @@ class ShoppingTag extends React.Component {
 
 
                 <header>
-                    <h1>Einkaufsliste</h1>
+                    <h1>Einkaufslist</h1>
                     <nav>
                         <input type="text" placeholder="Artikel hinzufügen"/>
                             <button className="material-icons">add_circle</button>

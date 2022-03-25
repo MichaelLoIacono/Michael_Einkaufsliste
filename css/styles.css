@@ -1,9 +1,7 @@
 #root {
     width: 20rem;
-    background-image: url("../img/markt.jpg");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
+
+
 }
 #container {
     opacity: 85%;

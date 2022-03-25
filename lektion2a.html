@@ -15,52 +15,61 @@
 
 <div id="root"></div>
 <script type="text/babel">
-  // 1. Schreibe eine funktionale Komponente
-  <!-- ToDo:Schreibe hierunter deine funktionale Komponente:-->
 
-  /*2. Schreibe die Funktion nun in eine Class Component um:
-  Bsp. class Example  extends React.Component {
-    render() {
-      return <h2>Hi, I am a Example !</h2>
-    }
-  */
-  <!-- ToDo:Schreibe hierunter deine Class Komponente:-->
+function Test() {
+	return (
+			<h2>Hi, I am student !</h2>)
+}
 
-  /*3. Schreibe die folgende funktionale Komponente
-  in eine Class Komponente um.
-  function Programmer() {
-    return <h2>Hi, I am a Programmer!</h2>
+class Student extends React.Component {
+	render() {
+		return <h2>Hi, ich bin ein Beispiel !</h2>
+	}
+}
+ReactDOM.render(<Student/>, document.getElementById('root'))
+
+
+class Programmer extends React.Component {
+	  render() {
+		  return (<h2>Hi, I am a Programmer!</h2>)
+	  }
   }
-  */
-  <!-- ToDo:Schreibe hierunter deine Class Komponente:-->
+ReactDOM.render(<Programmer/>, document.getElementById('root'))
 
-  /*4.
-    Kopiere die Class Komponente Student nun in die dafür vorgesehene Spalte ein und füge folgenden Code hinzu:
-     ReactDOM.render(Student, document.getElementById('root'))*/
-  <!-- ToDo: füge hier den obigen Code ein -->
+
+
 
 </script>
 
 
 <div id="root2"></div>
 <script type="text/babel">
-  /*5.Props:
-	z.b die Stadt aus der die Studenten kommen.*/
-  //5.b Props können wir auch der class Komponente hinzufügen
-  <!-- ToDo:Schreibe hierunter deinen Code -->
+ class Student extends React.Component {
+	 constructor(props) {
+		 super(props);
+	 }
+	 render() {
+		 return (<h2>Hi ! Ich bin die doofe {this.props.name}</h2>)
+	 }
 
+ }
+
+
+
+
+
+
+	const Stadt = <Student name="Köln"/>
   const Name = <Student name="Lisa"/>;
-  ReactDOM.render(Name, document.getElementById('root2'))
+  ReactDOM.render(Stadt, document.getElementById('root2'))
 
 </script>
 
 
 <div id="root3"></div>
 <script type="text/babel">
-  /*Wichtiger Unterschied hier: Während eine Function Component ihre Props als Funktionsargumente übergeben bekommt,
-	bekommt die render()-Methode einer Klassen-Komponente selbst keinerlei Argumente übergeben, sondern es kann einzig über
-	die Instanz-Eigenschaft this.props auf die Props zugegriffen werden!*/
-  <!-- ToDo:Schreibe hierunter deinen Code -->
+
+
 
   ReactDOM.render(Name, document.getElementById('root3'))
 </script>
@@ -68,7 +77,17 @@
 
 <div id="Inst"></div>
 <script type="text/babel">
-    <!-- ToDo:Schreibe hierunter deine verschachtelte Komponente für die Komponente Student  Code -->
+class Institut extends React.Component {
+	render(){
+		return <div>
+			<Student name="Lisa"/>
+			<Student name="Frederic"/>
+			<Student name="Maren"/>
+			<Student name="Dennis"/>
+		</div>
+	}
+
+}
 
 
     ReactDOM.render(<Institut/>, document.getElementById('Inst'))

@@ -18,7 +18,9 @@
 
 <script type="text/babel">
 
-  //ToDo: Schreibe hier deine Funktion Hallo!
+  function Hallo () {
+    return (
+            <h2>Hallo React !</h2>)}
 
   const element = <Hallo />;
   ReactDOM.render(
@@ -32,7 +34,11 @@
 
 <script type="text/babel">
 
-  //ToDo: Schreibe hier deine Klasse Tag!
+  class Tag extends React.Component {
+    render() {
+      return <h1>Heute ist ein schöner Tag!</h1>
+    }
+  }
 
   const element2 = <Tag />;
   ReactDOM.render(
@@ -46,9 +52,12 @@
 
 <script type="text/babel">
 
-  //ToDo: Schreibe hier deine Funktion mit props! Vergesse nicht, deinen Namen unten zu schreiben!
+ function Hey (props) {
+   return (<h2>Hey, {props.name}</h2>)
+   
+ }
 
-  const element3 = <Hey name="//ToDo: Schreibe hier deinen Namen" />;
+  const element3 = <Hey name = "Dennis" />;
   ReactDOM.render(
     element3,
     document.getElementById(`root3`)
@@ -60,13 +69,21 @@
 
 <script type="text/babel">
 
-  function Gruesse(props) {
+  function Gruesse (props) {
     return <p>Hallo, {props.name}!</p>;
   }
 
-  //ToDo: Schreibe hier deine Funktion "Wiederholt"!
 
-  const element4 = <Wiederholt />;
+  function Wiederholt(props) {
+    return (
+    <h2>Ich bin {props.name} </h2>)
+  }
+
+  const element4 = (<div>
+    <Wiederholt name="Dennis" />,
+    <Wiederholt name="Frederic" />
+  </div>)
+
   ReactDOM.render(
     element4,
     document.getElementById('root4')
@@ -78,9 +95,13 @@
 
 <script type="text/babel">
 
-  //ToDo: Schreibe hier deine Klasse mit props! Vergesse nicht, deinen Namen unten zu schreiben!
+class Vorname extends React.Component{
+  render(){
+    return <h3>es wird immer einfacher oder ich immer besser!{this.props.name}</h3>
+  }
+}
 
-  const element5 = <Vorname name="//ToDO: Schreibe hier deinen Namen" />;
+  const element5 = <Vorname name="Dennis" />;
   ReactDOM.render(
     element5,
     document.getElementById(`root5`)
@@ -93,20 +114,24 @@
   function Item(props) {
     return <div className="item">
       Name: {props.gegenstand} <br />
-      Preis: {props.preis}
+      Preis: {props.preis}<br />
     </div>;
   }
 
   function App() {
     return <div>
-      <Item gegenstand="Brot" preis="1,99" />
-      <Item gegenstand="Käse" preis="2,5" />
-      <Item gegenstand="Wurst" preis="2" />
-      <Item gegenstand="Kuchen" preis="4,99" />
+      <Item gegenstand="Brot" preis="1,99" /><br />
+      <Item gegenstand="Käse" preis="2,5" /><br />
+      <Item gegenstand="Wurst" preis="2" /><br />
+      <Item gegenstand="Kuchen" preis="4,99" /><br />
     </div>
   }
 
-  //ToDo: Schreibe hier deine ReactDOM render Funktion!
+  const element6 = <App/>
+  ReactDOM.render(
+          element6,
+          document.getElementById(`root6`)
+  );
 
 </script>
 
