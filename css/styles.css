@@ -79,4 +79,9 @@ footer {
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
 }
+.artikel {
+    display: flex;
+    justify-content: space-around;
+
+}
 
