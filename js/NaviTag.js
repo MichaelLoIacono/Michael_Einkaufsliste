@@ -1,6 +1,6 @@
 class NaviTag extends React.Component {
     render()  {
-        return (<nav>
+        return (<nav className="navi">
             <button><span
                 className="material-icons">sort</span></button>
             <button><span
