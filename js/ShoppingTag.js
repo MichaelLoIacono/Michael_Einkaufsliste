@@ -13,9 +13,9 @@ class ShoppingTag extends React.Component {
         let artikel2 = gruppe3.artikelHinzufuegen( "Schnitzel")
         artikel1.gekauft = true
 
-   console.log(1)
+   //console.log(1)
 
-        this.state = {aktiveGruppe: null}
+        this.state = {aktiveGruppe: 1}
 
     }
 
@@ -61,7 +61,7 @@ class ShoppingTag extends React.Component {
           <main>
               <section>
                   <nav>
-
+                        
                       <h2>Einkauf <i className="material-icons">expand_less</i>
                       </h2>
                       <dl>
