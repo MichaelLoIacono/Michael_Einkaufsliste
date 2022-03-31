@@ -10,9 +10,11 @@ class ShoppingTag extends React.Component {
         let gekaufterArtikel = gruppe3.artikelHinzufuegen("Milch")
         gekaufterArtikel.gekauft = true
 
-        console.log(1)
-        this.state = {aufgeklappt: true}
-        this.state = {aktiveGruppe: 1, menge: 1}
+        //console.log("Master Desaster")
+        
+        this.state = {aktiveGruppe: 1, menge: 1, 
+            einkaufenAufgeklappt: true, erledigtAufgeklappt: false,showGruppenDialog: false}
+        
     }
 
     setAktivGruppe = (gruppenID) => {
@@ -46,6 +48,17 @@ class ShoppingTag extends React.Component {
     mengeReduzieren = () => {
         this.setState({menge: this.state.menge - 1 > 0 ? this.state.menge - 1 : this.state.menge})
     }
+    toggleEinkaufenAufgeklappt = () => {
+        this.setState({einkaufenAufgeklappt: !this.state.einkaufenAufgeklappt})
+    }
+
+    toggleErledigtAufgeklappt = () => {
+        this.setState({erledigtAufgeklappt: !this.state.erledigtAufgeklappt})
+    }
+
+    gruppenDialogOpen = () => { 
+        this.setState({showGruppenDialog: !this.state.showGruppenDialog})
+    }
 
 
     render = () => {
@@ -74,10 +87,10 @@ class ShoppingTag extends React.Component {
                     <section>
                         <nav>
                             <h2>Einkauf
-                                <i className="material-icons">expand_less</i>
+                                <i onClick={this.toggleEinkaufenAufgeklappt} className="material-icons">{this.state.einkaufenAufgeklappt ? "expand_less":"expand_more" }</i>
                             </h2>
                             <dl>
-                                {App.gruppenListe.map(gruppe => (
+                                {this.state.einkaufenAufgeklappt && App.gruppenListe.map(gruppe => (
                                     <GruppenTag key={gruppe.id} gruppe={gruppe} setAktivGruppe={this.setAktivGruppe}
                                                 erledigt={false} aktiv={gruppe.id === this.state.aktiveGruppe}
                                                 checkHandler={this.artikelChecken}/>
@@ -88,10 +101,10 @@ class ShoppingTag extends React.Component {
                     <hr/>
                     <section>
                         <h2>Erledigt
-                            <i className="material-icons">expand_less</i>
+                            <i onClick={this.toggleErledigtAufgeklappt} className="material-icons">{this.state.erledigtAufgeklappt ? "expand_less":"expand_more" }</i>
                         </h2>
                         <dl>
-                            {App.gruppenListe.map(gruppe => (
+                            {this.state.erledigtAufgeklappt && App.gruppenListe.map(gruppe => (
                             <GruppenTag key={gruppe.id} gruppe={gruppe} setAktivGruppe={this.setAktivGruppe}
                                             erledigt={true}
                                             checkHandler={this.artikelChecken}/>
@@ -101,8 +114,13 @@ class ShoppingTag extends React.Component {
                 </main>
                 <hr/>
 
-                <NaviTag/>
+                <NaviTag gruppenDialogOpen={this.gruppenDialogOpen}/>
 
+                <GruppenDialogTag visible={this.state.showGruppenDialog} 
+                                  gruppeHinzufuegen={App.gruppeHinzufuegen}
+                                  onDialogClose={() => this.setState({showGruppenDialog: false})}/>
+                
+                
             </div>
 
         )
