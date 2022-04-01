@@ -14,13 +14,14 @@ class App {
     }
   }
 
-  static gruppeHinzufuegen(name) {
+  static gruppeHinzufuegen = (name)=> {
 
-    const gleicheGruppen = this.gruppenListe.filter(gruppe => gruppe.name == name)
+    const gleicheGruppen = this.gruppenListe.filter(gruppe => gruppe.name === name)
     // keine Gruppe mit diesem Namen vorhanden
-    if (gleicheGruppen.length == 0) {
+    if (gleicheGruppen.length === 0) {
       let neueGruppe = new Gruppe(name, this.gruppenListe.length)
       this.gruppenListe.push(neueGruppe)
+      console.log(neueGruppe)
       App.informieren(`[App] Gruppe "${neueGruppe.name}" hinzugefügt`)
       this.aktiveGruppe = neueGruppe.id
       return neueGruppe
@@ -85,7 +86,7 @@ class App {
     this.meldungenAusgeben = true
   }
 
-  static speichern() {
+  static speichern= ()=> {
     const json = {
       gruppenListe: this.gruppenListe,
       aktiveGruppe: this.aktiveGruppe,
@@ -93,7 +94,7 @@ class App {
     localStorage.setItem(this.STORAGE_KEY, JSON.stringify(json))
   }
 
-  static laden() {
+  static laden=()=> {
     let daten = JSON.parse(localStorage.getItem(this.STORAGE_KEY))
     this.initialisieren(daten)
   }

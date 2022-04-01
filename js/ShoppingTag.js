@@ -1,14 +1,8 @@
 class ShoppingTag extends React.Component {
     constructor() {
         super();
-        let gruppe1 = App.gruppeHinzufuegen("Obst & Gemüse")
-        gruppe1.artikelHinzufuegen("Brokkoli")
-        let gruppe2 = App.gruppeHinzufuegen("Getreideprodukte")
-        gruppe2.artikelHinzufuegen("Reis")
-        let gruppe3 = App.gruppeHinzufuegen("Milchprodukte")
-        gruppe3.artikelHinzufuegen("Streukäse")
-        let gekaufterArtikel = gruppe3.artikelHinzufuegen("Milch")
-        gekaufterArtikel.gekauft = true
+        
+        App.datenEinlesen()
 
         //console.log("Master Desaster")
         
@@ -30,10 +24,11 @@ class ShoppingTag extends React.Component {
 
     artikelHinzufuegen = () => {
         let eingabe = document.getElementById("eingabe")
+        let neuerName = eingabe.value.trim()
         console.log(this.state)
-        if (eingabe.value.trim().length > 0) {
+        if (neuerName.length > 0) {
             let gruppeFinden = App.gruppeFinden(this.state.aktiveGruppe)
-            gruppeFinden.artikelHinzufuegen(eingabe.value, this.state.menge)
+            gruppeFinden.artikelHinzufuegen(neuerName, this.state.menge)
             this.setState({
                 gruppenListe: App.gruppenListe
             })
@@ -116,7 +111,7 @@ class ShoppingTag extends React.Component {
 
                 <NaviTag gruppenDialogOpen={this.gruppenDialogOpen}/>
 
-                <GruppenDialogTag visible={this.state.showGruppenDialog} 
+                <GruppenDialogTag visible={this.state.showGruppenDialog}
                                   gruppeHinzufuegen={App.gruppeHinzufuegen}
                                   onDialogClose={() => this.setState({showGruppenDialog: false})}/>
                 
