@@ -8,6 +8,7 @@ Artikel Löschen
 Artikel als erledigt makieren
 Gruppe Hinzufügen
 Gruppen auf und zu klappen
+Die Datei werden im LocalStorage gespeichert
 
 Design:
 Futuristisch, classic

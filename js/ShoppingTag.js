@@ -10,8 +10,14 @@ class ShoppingTag extends React.Component {
     }
     /** liest die Liste, Die Liste übernimmt er aus der Json */
     async startzustand(){
-        await App.datenEinlesen()
-        this.setState(this.state)
+        let server= localStorage.getItem(App.STORAGE_KEY)
+
+        if (server){
+            App.laden()
+        }else {
+            await App.datenEinlesen()
+            this.setState(this.state)
+        }
     }
     
 
