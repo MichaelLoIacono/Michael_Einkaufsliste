@@ -12,7 +12,7 @@ Die Datei werden im LocalStorage gespeichert
 
 Design:
 Futuristisch, classic
-Butto mit Animation element codiert
+Button mit Animation element codiert
 Farben: Android normen genutzt
 
 >![Screenshot](img/Design.png)
